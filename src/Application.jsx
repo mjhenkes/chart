@@ -5,7 +5,7 @@ import DemoApplication from './demo-application/DemoApplication';
 
 const Application = () => (
   <ApplicationBase>
-    <ApplicationContainer applicationName="application name" applicationVersion="0.0.0">
+    <ApplicationContainer applicationName="Chart" applicationVersion="0.0.0">
       <DemoApplication />
     </ApplicationContainer>
   </ApplicationBase>

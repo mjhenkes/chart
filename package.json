@@ -1,18 +1,18 @@
 {
-  "name": "terra-model-repo",
+  "name": "chart",
   "version": "1.0.0",
   "description": "A model repo for how terra applications should look",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mjhenkes/terra-model-repo.git"
+    "url": "git+https://github.com/mjhenkes/chart.git"
   },
   "author": "",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/mjhenkes/terra-model-repo/issues"
+    "url": "https://github.com/mjhenkes/chart/issues"
   },
-  "homepage": "https://github.com/mjhenkes/terra-model-repo#readme",
+  "homepage": "https://github.com/mjhenkes/chart#readme",
   "eslintConfig": {
     "extends": "@cerner/terra"
   },
@@ -23,9 +23,10 @@
     "clean": "rm package-lock.json; rm -rf node_modules",
     "clean:install": "npm run clean && npm install",
     "compile:dev": "webpack",
-    "compile:prod": "rm -rf ./build; webpack -p",
-    "compile:lowlight": "rm -rf ./build; THEME=clinical-lowlight-theme webpack -p",
-    "compile:fusion": "rm -rf ./build; THEME=orion-fusion-theme webpack -p",
+    "compile:prod": "rm -rf ./build; webpack --mode=production",
+    "compile:lowlight": "rm -rf ./build; THEME=clinical-lowlight-theme webpack --mode=production",
+    "compile:fusion": "rm -rf ./build; THEME=orion-fusion-theme webpack --mode=production",
+    "deploy": "npm run compile:prod && gh-pages -d build",
     "jest": "jest",
     "lint": "npm run lint:js && npm run lint:scss",
     "lint:js": "eslint --ext .js,.jsx .",
@@ -46,7 +47,10 @@
     "react-intl": "^5.13.2",
     "terra-button": "^3.53.0",
     "terra-collapsible-menu-view": "^6.48.0",
+    "terra-demographics-banner": "^3.51.0",
+    "terra-hyperlink": "^2.47.0",
     "terra-icon": "^3.41.0",
+    "terra-list": "^4.46.0",
     "terra-toolbar": "^1.21.0"
   },
   "devDependencies": {
